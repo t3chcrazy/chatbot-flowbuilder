@@ -1,0 +1,14 @@
+#mainContent {
+  width: 100vw;
+  height: 100vh;
+}
+
+#flowContainer {
+  display: flex;
+}
+
+@media only screen and (max-width: 768px) {
+  #flowContainer {
+    flex-flow: column;
+  }
+}
