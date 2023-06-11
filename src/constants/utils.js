@@ -28,3 +28,5 @@ export const mapChannelToIcons = channel => {
             return { icon: "", type: "default", sideIcon: "" }
     }
 }
+
+export const SELECTED_NODES_SELECTOR = state => Array.from(state.nodeInternals.values()).filter(el => el.selected)

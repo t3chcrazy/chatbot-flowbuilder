@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import { Handle, Position, useOnSelectionChange } from 'reactflow'
+import { Handle, Position, useStore } from 'reactflow'
 import { styled } from 'styled-components'
 import images from '../../constants/images'
+import { SELECTED_NODES_SELECTOR } from '../../constants/utils'
 
 const Container = styled.div`
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -45,13 +45,7 @@ const SmallIcon = styled.img`
 
 export default function TextNode({ data }) {
     const { channel = "whatsapp", text, id } = data
-    const [selected, setSelected] = useState(false)
-
-    useOnSelectionChange({
-        onChange: ({ nodes }) => {
-            setSelected(nodes?.[0]?.id === id)
-        }
-    })
+    const selected = useStore(SELECTED_NODES_SELECTOR)?.[0]?.id === id
 
     return (
         <>

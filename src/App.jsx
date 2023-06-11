@@ -53,7 +53,7 @@ function App() {
         position: toast.POSITION.TOP_CENTER,
       })
     }
-  }, [nodes])
+  }, [nodes, edges])
 
   // Interaction event callbacks on the reactflow component
   const handleTargetDrop = useCallback(e => {
@@ -100,6 +100,7 @@ function App() {
       <ReactFlowProvider>
         <FlowContainer ref={flowWrapper}>
           <ReactFlow
+            multiSelectionKeyCode={false}
             onInit={setInstance}
             nodeTypes={nodeTypes}
             nodes={nodes}

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { styled } from 'styled-components'
 import images from '../../../constants/images'
 import { AsideContent } from './commonStyles'
@@ -42,10 +43,17 @@ const NewText = styled.textarea`
 `
 
 export default function TextSettings({ resetElements, handleNodeEdit, defaultValue }) {
-    
+    const inputRef = useRef()
+
     const handleChange = e => {
         handleNodeEdit(e.target.value)
     }
+
+    useEffect(() => {
+        if (!!defaultValue) {
+            inputRef.current.value = defaultValue
+        }
+    }, [defaultValue])
     
     return (
         <SettingsContainer className="settingsContainer">
@@ -57,7 +65,7 @@ export default function TextSettings({ resetElements, handleNodeEdit, defaultVal
             </Header>
             <AsideContent>
                 <h5>Text</h5>
-                <NewText defaultValue={defaultValue} onChange={handleChange} rows="4"></NewText>
+                <NewText ref={inputRef} defaultValue={defaultValue} onChange={handleChange} rows="4"></NewText>
             </AsideContent>
         </SettingsContainer>
     )

@@ -1,7 +1,7 @@
+import { useStore } from 'reactflow'
 import { styled } from 'styled-components'
 import Draggable from './components/Draggable'
-import { CHANNELS, mapChannelToIcons } from '../../constants/utils'
-import { useStore } from 'reactflow'
+import { CHANNELS, SELECTED_NODES_SELECTOR, mapChannelToIcons } from '../../constants/utils'
 import TextSettings from './components/TextSettings'
 
 const Aside = styled.aside`
@@ -20,8 +20,6 @@ const DraggableContainer = styled.div`
     align-content: flex-start;
     padding: .5rem;
 `
-
-const SELECTED_NODES_SELECTOR = state => Array.from(state.nodeInternals.values()).filter(el => el.selected)
 
 export default function SidePanel({ handleTextNodeEdit }) {
     const selectedNodes = useStore(SELECTED_NODES_SELECTOR)
