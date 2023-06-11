@@ -15,7 +15,7 @@ const FlowContainer = styled.div`
   width: 100%;
   height: 100%;
   @media only screen and (max-width: 768px) {
-    flex-flow: column;
+    flex-flow: column-reverse;
   }
 `
 
@@ -108,7 +108,6 @@ function App() {
             onEdgesChange={onEdgesChange}
             onDragOver={handleDragOver}
             onDrop={handleTargetDrop}
-            onSelectionChange={({ nodes }) => null}
             onConnect={handleConnect}
             defaultEdgeOptions={defaultEdgeOptions}
           />

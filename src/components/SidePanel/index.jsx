@@ -8,6 +8,9 @@ const Aside = styled.aside`
     border-left: 1px solid #ecf0f1;
     width: clamp(100px, 40%, 400px);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
 `
 
 const DraggableContainer = styled.div`
@@ -32,7 +35,11 @@ export default function SidePanel({ handleTextNodeEdit }) {
     return (
         <Aside>
             {openSettings?
-            <TextSettings handleNodeEdit={handleNodeEdit} resetElements={resetSelectedElements} />:
+            <TextSettings
+                handleNodeEdit={handleNodeEdit}
+                resetElements={resetSelectedElements}
+                defaultValue={selectedNodes?.[0]?.data?.text ?? ""}
+            />:
             <DraggableContainer>
                 <Draggable
                     {...mapChannelToIcons(CHANNELS.WHATSAPP)}

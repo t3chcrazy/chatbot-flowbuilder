@@ -41,10 +41,9 @@ const NewText = styled.textarea`
     box-sizing: border-box;
 `
 
-export default function TextSettings({ resetElements, handleNodeEdit }) {
+export default function TextSettings({ resetElements, handleNodeEdit, defaultValue }) {
     
     const handleChange = e => {
-        console.log(e.target.value)
         handleNodeEdit(e.target.value)
     }
     
@@ -58,7 +57,7 @@ export default function TextSettings({ resetElements, handleNodeEdit }) {
             </Header>
             <AsideContent>
                 <h5>Text</h5>
-                <NewText onChange={handleChange} rows="4"></NewText>
+                <NewText defaultValue={defaultValue} onChange={handleChange} rows="4"></NewText>
             </AsideContent>
         </SettingsContainer>
     )
