@@ -21,7 +21,14 @@ const DraggableContainer = styled.div`
     padding: .5rem;
 `
 
+/**
+ * 
+ * @param {*} handeTextNodeEdit - Function which is used to set value of selected node
+ * @returns A React side panel component which is used to show the different types of nodes and settings when a node is selected
+ */
 export default function SidePanel({ handleTextNodeEdit }) {
+    // Selected node is fetched from reactflow's internal state management which is powered by zustand
+    // It is used to decide whether to show settings or draggable nodes
     const selectedNodes = useStore(SELECTED_NODES_SELECTOR)
     const openSettings = selectedNodes?.length > 0
     const resetSelectedElements = useStore(state => state.unselectNodesAndEdges)

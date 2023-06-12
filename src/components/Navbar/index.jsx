@@ -23,6 +23,11 @@ const Button = styled.button`
     }
 `
 
+/**
+ * 
+ * @param {*} saveChanges - Function which is called on save changes button click 
+ * @returns React navbar component which is displayed at the top
+ */
 export default function Navbar({ saveChanges }) {
     return (
         <Nav>

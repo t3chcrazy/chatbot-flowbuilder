@@ -43,6 +43,11 @@ const SmallIcon = styled.img`
     height: 10px;
 `
 
+/**
+ * 
+ * @param {Object} data 
+ * @returns Custom node for displaying text in reactflow
+ */
 export default function TextNode({ data }) {
     const { channel = "whatsapp", text, id } = data
     const selected = useStore(SELECTED_NODES_SELECTOR)?.[0]?.id === id

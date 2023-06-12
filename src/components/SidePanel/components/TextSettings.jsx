@@ -42,6 +42,13 @@ const NewText = styled.textarea`
     box-sizing: border-box;
 `
 
+/**
+ * 
+ * @param {*} resetElements - Method to reset selected status of nodes
+ * @param {*} handleNodeEdit - Callback which runs on onChange event of textarea
+ * @param {String} defaultValue - Initial default value of text area
+ * @returns A react component used to handle node text edits whenever a ndoe is selected
+ */
 export default function TextSettings({ resetElements, handleNodeEdit, defaultValue }) {
     const inputRef = useRef()
 

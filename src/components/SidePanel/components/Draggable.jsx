@@ -18,6 +18,13 @@ const Img = styled.img`
     margin-bottom: .2rem;
 `
 
+/**
+ * 
+ * @param {*} icon - Icon to be displayed at the top of the card
+ * @param {String} type - Type of draggable node
+ * @param {String} title - Title to be displayed beneath the icon
+ * @returns A react component which is draggable from the side panel onto react flow
+ */
 export default function Draggable({ icon, type, title }) {
 
     const handleDragStart = (event) => {
