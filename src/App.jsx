@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef } from 'react'
 import { ToastContainer } from 'react-toastify'
 import ReactFlow, { useEdgesState, useNodesState, addEdge, MarkerType, ReactFlowProvider } from 'reactflow'
+import { Analytics } from '@vercel/analytics/react';
 import { styled } from 'styled-components'
 import SidePanel from './components/SidePanel'
 import { NODE_TYPES, getId, showMessage } from './constants/utils'
@@ -125,6 +126,7 @@ function App() {
         closeButton={false}
         autoClose={2000}
       />
+      <Analytics />
     </div>
   )
 }
