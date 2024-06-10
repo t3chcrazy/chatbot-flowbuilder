@@ -39,7 +39,7 @@ function App() {
   const [edges, setEdges, onEdgesChange] = useEdgesState([])
 
   // Check if number of nodes with connected handles is atmost one less than total nodes
-  const handleSaveChanges = useCallback(() => {
+  const handleSaveChanges = useCallback((handleSuccess) => {
     const possibleIds = new Set(nodes.map(el => el.id))
     const allTargets = new Set(edges.map(el => el.id))
 
@@ -48,6 +48,7 @@ function App() {
     }
     else {
       showMessage("Flow saved!", "success")
+      handleSuccess?.()
     }
   }, [nodes, edges])
 
@@ -98,8 +99,8 @@ function App() {
 
   return (
     <div id="mainContent">
-      <Navbar saveChanges={handleSaveChanges} />
       <ReactFlowProvider>
+        <Navbar saveChanges={handleSaveChanges} />
         <FlowContainer ref={flowWrapper}>
           <ReactFlow
             multiSelectionKeyCode={false}
